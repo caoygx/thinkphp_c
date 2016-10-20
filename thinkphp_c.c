@@ -46,30 +46,11 @@ static zval *config =NULL;
  * Every user visible function must have an entry in thinkphp_c_functions[].
  */
 const zend_function_entry thinkphp_c_functions[] = {
-    PHP_FE(confirm_thinkphp_c_compiled, NULL)       /* For testing, remove later. */
+    PHP_FE(thinkphp_c, NULL)       /* For testing, remove later. */
     PHP_FE_END  /* Must be the last line in thinkphp_c_functions[] */
 };
 /* }}} */
 
-/* {{{ thinkphp_c_module_entry
- */
-zend_module_entry thinkphp_c_module_entry = {
-#if ZEND_MODULE_API_NO >= 20010901
-    STANDARD_MODULE_HEADER,
-#endif
-    "thinkphp_c",
-    thinkphp_c_functions,
-    PHP_MINIT(thinkphp_c),
-    PHP_MSHUTDOWN(thinkphp_c),
-    PHP_RINIT(thinkphp_c),      /* Replace with NULL if there's nothing to do at request start */
-    PHP_RSHUTDOWN(thinkphp_c),  /* Replace with NULL if there's nothing to do at request end */
-    PHP_MINFO(thinkphp_c),
-#if ZEND_MODULE_API_NO >= 20010901
-    PHP_THINKPHP_C_VERSION,
-#endif
-    STANDARD_MODULE_PROPERTIES
-};
-/* }}} */
 
 #ifdef COMPILE_DL_THINKPHP_C
 ZEND_GET_MODULE(thinkphp_c)
@@ -161,7 +142,7 @@ PHP_MINFO_FUNCTION(thinkphp_c)
 /* Every user-visible function in PHP should document itself in the source */
 /* {{{ proto string confirm_thinkphp_c_compiled(string arg)
    Return a string to confirm that the module is compiled in */
-PHP_FUNCTION(C)
+PHP_FUNCTION(thinkphp_c)
 {
     zval *key=NULL;
     zval *value=NULL;
@@ -386,6 +367,25 @@ PHP_FUNCTION(C)
    follow this convention for the convenience of others editing your code.
 */
 
+/* {{{ thinkphp_c_module_entry
+ */
+zend_module_entry thinkphp_c_module_entry = {
+#if ZEND_MODULE_API_NO >= 20010901
+    STANDARD_MODULE_HEADER,
+#endif
+    "thinkphp_c",
+    thinkphp_c_functions,
+    PHP_MINIT(thinkphp_c),
+    PHP_MSHUTDOWN(thinkphp_c),
+    PHP_RINIT(thinkphp_c),      /* Replace with NULL if there's nothing to do at request start */
+    PHP_RSHUTDOWN(thinkphp_c),  /* Replace with NULL if there's nothing to do at request end */
+    PHP_MINFO(thinkphp_c),
+#if ZEND_MODULE_API_NO >= 20010901
+    PHP_THINKPHP_C_VERSION,
+#endif
+    STANDARD_MODULE_PROPERTIES
+};
+/* }}} */
 
 /*
  * Local variables:

@@ -44,7 +44,7 @@ PHP_RINIT_FUNCTION(thinkphp_c);
 PHP_RSHUTDOWN_FUNCTION(thinkphp_c);
 PHP_MINFO_FUNCTION(thinkphp_c);
 
-PHP_FUNCTION(confirm_thinkphp_c_compiled);	/* For testing, remove later. */
+PHP_FUNCTION(thinkphp_c);	/* For testing, remove later. */
 
 /* 
   	Declare any global variables you may need between the BEGIN

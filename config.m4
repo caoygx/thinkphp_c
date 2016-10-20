@@ -13,8 +13,9 @@ dnl [  --with-thinkphp_c             Include thinkphp_c support])
 
 dnl Otherwise use enable:
 
-dnl PHP_ARG_ENABLE(thinkphp_c, whether to enable thinkphp_c support,
-dnl Make sure that the comment is aligned:
+PHP_ARG_ENABLE(thinkphp_c, whether to enable thinkphp_c support,
+Make sure that the comment is aligned:
+[  --with-thinkphp_c           Include thinkphp_c support])
 dnl [  --enable-thinkphp_c           Enable thinkphp_c support])
 
 if test "$PHP_THINKPHP_C" != "no"; then
